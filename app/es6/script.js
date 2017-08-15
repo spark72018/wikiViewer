@@ -1,5 +1,3 @@
-// https://coolors.co/f5ffc6-b4e1ff-ab87ff-fface4-c1ff9b
-
 function jsonCb(data) {
     const resultsArr = data.query.search;
     const resultsContainer = document.getElementById('resultsContainer');
@@ -26,9 +24,6 @@ const app = (function() {
     const wikiUrl1 = 'https://en.wikipedia.org/w/api.php?&action=query&prop=links&format=json&callback=jsonCb&list=search&continue=&srsearch=';
     const wikiUrl2 = '&srwhat=text&srprop=timestamp|snippet';
     const getValueOf = (element) => element.value;
-    function someFn(data) {
-        console.log(data);
-    }
     const makeScriptTagAndInsertInBody = (queryStr) => {
         let url = wikiUrl1 + queryStr + wikiUrl2;
         let scriptTag = make('script');
