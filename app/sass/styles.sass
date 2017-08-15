@@ -1,0 +1,87 @@
+html, body
+    height: 100%
+
+body
+    display: flex
+    flex-direction: column
+    align-items: center  
+    font-family: 'Bad Script', cursive
+    background-color: #8C001A
+
+h1
+    font-family: 'Princess Sofia', cursive
+    animation: 2s fadeIn
+    color: #E0E2DB
+
+h2, p
+    margin: 0
+
+a
+    position: relative
+    margin-top: 10px
+    width: 100%
+    padding: 2px
+    background-color: #3375a5
+    color: #E7CFCD
+    font-family: 'Handlee', cursive
+    border-radius: 5px
+    display: flex
+    flex-direction: column
+    align-items: center
+    font-weight: 600
+    animation: 2s fadeIn
+
+#mainContainer
+    display: flex
+    flex-direction: column
+    align-items: center
+    position: relative
+    width: 30em
+    border-radius: 5px
+
+#resultsContainer
+    position: relative
+    top: 10px
+    height: 100%
+    width: 90%
+
+
+#inputTag 
+    position: relative
+    top: 2px
+    width: 80%
+    height: 2em
+    padding: 0
+    font-family: 'Bad Script', cursive
+    font-size: 1.5em
+    font-weight: 800
+    border-radius: 10px
+    text-align: center
+    background-color: #E7CFCD
+    animation: 4s fadeIn
+
+#test
+    width: 80%
+    height: 2em
+    padding: 0
+    font-family: 'Handlee', cursive
+    font-size: 1.5em
+    font-weight: 800
+    border-radius: 10px
+    background-color: #AB87FF
+    color: #C1FF9B
+    text-align: center
+
+#inputTag:focus
+    outline: none
+
+
+@keyframes fadeIn 
+    from 
+        opacity: 0
+    to 
+        opacity: 1
+
+@media screen and (max-width: 540px) 
+    #mainContainer
+        width: 22em

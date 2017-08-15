@@ -1,0 +1,96 @@
+/* line 1, app/sass/styles.sass */
+html, body {
+  height: 100%; }
+
+/* line 4, app/sass/styles.sass */
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Bad Script', cursive;
+  background-color: #8C001A; }
+
+/* line 11, app/sass/styles.sass */
+h1 {
+  font-family: 'Princess Sofia', cursive;
+  animation: 2s fadeIn;
+  color: #E0E2DB; }
+
+/* line 16, app/sass/styles.sass */
+h2, p {
+  margin: 0; }
+
+/* line 19, app/sass/styles.sass */
+a {
+  position: relative;
+  margin-top: 10px;
+  width: 100%;
+  padding: 2px;
+  background-color: #3375a5;
+  color: #E7CFCD;
+  font-family: 'Handlee', cursive;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: 600;
+  animation: 2s fadeIn; }
+
+/* line 34, app/sass/styles.sass */
+#mainContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 30em;
+  border-radius: 5px; }
+
+/* line 42, app/sass/styles.sass */
+#resultsContainer {
+  position: relative;
+  top: 10px;
+  height: 100%;
+  width: 90%; }
+
+/* line 49, app/sass/styles.sass */
+#inputTag {
+  position: relative;
+  top: 2px;
+  width: 80%;
+  height: 2em;
+  padding: 0;
+  font-family: 'Bad Script', cursive;
+  font-size: 1.5em;
+  font-weight: 800;
+  border-radius: 10px;
+  text-align: center;
+  background-color: #E7CFCD;
+  animation: 4s fadeIn; }
+
+/* line 63, app/sass/styles.sass */
+#test {
+  width: 80%;
+  height: 2em;
+  padding: 0;
+  font-family: 'Handlee', cursive;
+  font-size: 1.5em;
+  font-weight: 800;
+  border-radius: 10px;
+  background-color: #AB87FF;
+  color: #C1FF9B;
+  text-align: center; }
+
+/* line 75, app/sass/styles.sass */
+#inputTag:focus {
+  outline: none; }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@media screen and (max-width: 540px) {
+  /* line 86, app/sass/styles.sass */
+  #mainContainer {
+    width: 22em; } }
