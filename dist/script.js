@@ -18,7 +18,7 @@ function jsonCb(data) {
         };
         // animate in each result on to page in 200ms intervals
         setTimeout(delayedAppend, 200 * (idx + 1));
-    });
+    }); //
 }
 
 var app = function () {

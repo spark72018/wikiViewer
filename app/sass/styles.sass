@@ -6,30 +6,37 @@ body
     flex-direction: column
     align-items: center  
     font-family: 'Bad Script', cursive
-    background-color: #8C001A
+    background-color: white
 
 h1
     font-family: 'Princess Sofia', cursive
     animation: 2s fadeIn
-    color: #E0E2DB
+    color: black
 
 h2, p
     margin: 0
 
-a
+#resultsContainer a
     position: relative
     margin-top: 10px
     width: 100%
-    padding: 2px
-    background-color: #3375a5
-    color: #E7CFCD
+    padding: 5px
+    background-color: white
+    color: black
     font-family: 'Handlee', cursive
-    border-radius: 5px
+    border: solid
     display: flex
     flex-direction: column
     align-items: center
     font-weight: 600
     animation: 2s fadeIn
+    transition: all .15s ease-in
+    text-decoration: none
+
+#resultsContainer a:hover
+    background-color: #E0ECFF
+    transform: scale(1.03)
+    box-shadow: 0px 3px 2px 1px gray 
 
 #mainContainer
     display: flex
@@ -60,17 +67,17 @@ a
     background-color: #E7CFCD
     animation: 4s fadeIn
 
-#test
-    width: 80%
-    height: 2em
-    padding: 0
-    font-family: 'Handlee', cursive
-    font-size: 1.5em
-    font-weight: 800
-    border-radius: 10px
-    background-color: #AB87FF
-    color: #C1FF9B
-    text-align: center
+// #test
+//     width: 80%
+//     height: 2em
+//     padding: 0
+//     font-family: 'Handlee', cursive
+//     font-size: 1.5em
+//     font-weight: 800
+//     border-radius: 10px
+//     background-color: #AB87FF
+//     color: #C1FF9B
+//     text-align: center
 
 #inputTag:focus
     outline: none

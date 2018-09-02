@@ -1,52 +1,51 @@
 function jsonCb(data) {
     const resultsArr = data.query.search;
     const resultsContainer = document.getElementById('resultsContainer');
-    const appendFirstToSecond = (child, parent) => parent.appendChild(child)
+
     resultsArr.forEach((el, idx) => {
-        const title = app.makeTextInHeader(el.title)(app.make('h2'));
-        const paragraph = app.make('p');
+        const title = app.makeTextInHeader(el.title, document.createElement('h2'));
+        const paragraph = document.createElement('p');
         paragraph.innerHTML = el.snippet;
-        const anchorTag = app.make('a');
+        const anchorTag = document.createElement('a');
         anchorTag.setAttribute('target', '_blank');
         anchorTag.setAttribute('href', `https://en.wikipedia.org/wiki/${el.title}`);
         anchorTag.appendChild(title);
         anchorTag.appendChild(paragraph);
-        const callLater = () => appendFirstToSecond(anchorTag, resultsContainer);
-        setTimeout(callLater, 200 * (idx+1));
+        const delayedAppend = () => resultsContainer.appendChild(anchorTag);
+        // animate in each result on to page in 200ms intervals
+        setTimeout(delayedAppend, 200 * (idx+1));
     });
-}    
+}
 
 const app = (function() {
-    const make = (elStr) => document.createElement(elStr);
     const mainContainer = document.getElementById('mainContainer');
     const resultsContainer = document.getElementById('resultsContainer');
     const inputTag = document.getElementById('inputTag');
     const wikiUrl1 = 'https://en.wikipedia.org/w/api.php?&action=query&prop=links&format=json&callback=jsonCb&list=search&continue=&srsearch=';
     const wikiUrl2 = '&srwhat=text&srprop=timestamp|snippet';
-    const getValueOf = (element) => element.value;
     const makeScriptTagAndInsertInBody = (queryStr) => {
-        let url = wikiUrl1 + queryStr + wikiUrl2;
-        let scriptTag = make('script');
+        const url = wikiUrl1 + queryStr + wikiUrl2;
+        const scriptTag = document.createElement('script');
         scriptTag.src = url;
         document.body.appendChild(scriptTag);
 
     }
 
-    const makeTextNodeAndAppendToHeaderTag = (str) => (element) => element.appendChild(document.createTextNode(str));
+    const makeTextNodeAndAppendToHeaderTag = (str, element) => element.appendChild(document.createTextNode(str));
 
     const inputTagKeyDownhandler = (e) => {
-        if(e.target.id === 'inputTag' && e.keyCode === 13) {
+        const enterKeyPressed = e.keyCode === 13;
+        if(e.target.id === 'inputTag' && enterKeyPressed) {
             while(resultsContainer.firstElementChild) {
                 resultsContainer.removeChild(resultsContainer.firstElementChild);
             }
-            const userQueryStr = getValueOf(inputTag).trim().replace(/\s+/g, '%20');
+            const userQueryStr = inputTag.value.trim().replace(/\s+/g, '%20');
             makeScriptTagAndInsertInBody(userQueryStr);
         }
     };
     mainContainer.addEventListener('keydown', inputTagKeyDownhandler, false);
 
     return {
-        makeTextInHeader: makeTextNodeAndAppendToHeaderTag,
-        make: make
+        makeTextInHeader: makeTextNodeAndAppendToHeaderTag
     };
 })();
